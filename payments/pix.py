@@ -7,7 +7,7 @@ class Pix:
 
     def create_payment(self):
         # criar o pagamento na instituicao financeira
-        bank_payment_id = uuid.uuid4()
+        bank_payment_id = str(uuid.uuid4())
 
         # codigo copia e cola
         hash_payment = f'hash_payement_{bank_payment_id}'
