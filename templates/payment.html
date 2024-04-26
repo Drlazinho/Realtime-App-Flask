@@ -20,6 +20,7 @@
       <header>
         <div id="qr-code">
           <img src="{{host}}/payments/pix/qr_code/{{qr_code}}" alt="QR Code" />
+          
         </div>
 
         <aside>
@@ -64,7 +65,11 @@
       var socket = io.connect('{{ host}}');
       socket.on('connect', () => {
         console.log("Websocket connected!")
-      })
+      });
+      socket.on('payment-confirmed-{{payment_id}}', () => {
+        console.log("Pagamento Confirmado")
+        location.reload(); // refresh
+      });
     </script>
   </body>
 </html>
